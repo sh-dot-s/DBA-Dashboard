@@ -1,6 +1,24 @@
 @import '~react-md/src/scss/react-md';
 
-$md-primary-color: $md-red-500;
-$md-secondary-color: $md-lime-a-400;
+// $md-light-theme: false;
+// $md-primary-color: $md-red-500;
+// $md-secondary-color: $md-deep-orange-a-700;
 
-@include react-md-everything;
+// @include react-md-everything;
+
+@include react-md-theme-everything($md-orange-500, $md-deep-orange-a-700, $md-light-theme, 'custom-theme');
+
+// .navigation-drawer__dynamic {
+//     &--inbox {
+//         @include react-md-theme-everything($md-red-500, $md-deep-orange-a-700, $md-light-theme);
+//     }
+//     &--starred {
+//         @include react-md-theme-navigation-drawers($md-purple-a-400);
+//     }
+//     &--mail {
+//         @include react-md-theme-navigation-drawers($md-indigo-a-400);
+//     }
+//     &--drafts {
+//         @include react-md-theme-navigation-drawers($md-blue-a-400);
+//     }
+// }

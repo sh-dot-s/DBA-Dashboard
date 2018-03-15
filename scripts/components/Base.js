@@ -1,6 +1,7 @@
 import React, { PureComponent } from 'react';
 import ReactDOM from 'react-dom';
-import { Button, DialogContainer, NavigationDrawer, SVGIcon, FontIcon } from 'react-md';
+import { Button, DialogContainer, NavigationDrawer, SVGIcon, FontIcon, Grid, Cell } from 'react-md';
+import Paper from '../components/Paper'
 import * as Icons from 'react-icons/lib/md';
 
 
@@ -15,32 +16,32 @@ export default class Simple extends PureComponent {
     this.navitems = [{
       key: 'inbox',
       primaryText: 'Inbox',
-      leftIcon: <Icons.MdInbox></Icons.MdInbox>,
+      leftIcon: <FontIcon>inbox</FontIcon>,
       active: true,
     }, {
       key: 'starred',
       primaryText: 'Starred',
-      leftIcon: <Icons.MdStar></Icons.MdStar>,
+      leftIcon: <FontIcon>star</FontIcon>,
     }, {
       key: 'send-mail',
       primaryText: 'Send mail',
-      leftIcon: <Icons.MdSend></Icons.MdSend>,
+      leftIcon: <FontIcon>send</FontIcon>,
     }, {
       key: 'drafts',
       primaryText: 'Drafts',
-      leftIcon: <Icons.MdDrafts></Icons.MdDrafts>,
+      leftIcon: <FontIcon>drafts</FontIcon>,
     }, { key: 'divider', divider: true }, {
       key: 'all-mail',
       primaryText: 'All mail',
-      leftIcon: <Icons.MdMail></Icons.MdMail>,
+      leftIcon: <FontIcon>mail</FontIcon>,
     }, {
       key: 'trash',
       primaryText: 'Trash',
-      leftIcon: <Icons.MdDelete></Icons.MdDelete>,
+      leftIcon: <FontIcon>delete</FontIcon>,
     }, {
       key: 'spam',
       primaryText: 'Spam',
-      leftIcon: <Icons.MdWarning/>,
+      leftIcon: <FontIcon>warning</FontIcon>,
     }];
     // Update the items so they have an onClick handler to change the current page
     this.navItems = this.navitems.map((item) => {
@@ -108,19 +109,20 @@ export default class Simple extends PureComponent {
             desktopDrawerType={NavigationDrawer.DrawerTypes.PERSISTENT_MINI}
             toolbarTitle="Hello, World!"
             contentId="main-demo-content"
-            temporaryIcon={<Icons.MdViewHeadline />}
-            persistentIcon={<Icons.MdArrowBack />}
+            temporaryIcon={<FontIcon>dehaze</FontIcon>}
+            persistentIcon={<FontIcon>close</FontIcon>}
             contentClassName="md-grid"
           >
             <h2 className="md-cell md-cell--12">Currently on page: {page}</h2>
-            <section className="md-text-container md-cell md-cell--12">
-              <p>{loremIpsum({ units: 'paragraphs', count: 1 })}</p>
-              <p>{loremIpsum({ units: 'paragraphs', count: 1 })}</p>
-              <p>{loremIpsum({ units: 'paragraphs', count: 1 })}</p>
-              <p>{loremIpsum({ units: 'paragraphs', count: 1 })}</p>
-              <p>{loremIpsum({ units: 'paragraphs', count: 1 })}</p>
-              <p>{loremIpsum({ units: 'paragraphs', count: 1 })}</p>
-            </section>
+            <Grid className="grid-example">
+              {
+                Array.from(Array(3)).map((_, i) => 
+                  <Cell key={i} size={4}>
+                    <Paper body={page} depth={0}></Paper>
+                  </Cell>
+                )
+              }
+            </Grid>
           </NavigationDrawer>
         </DialogContainer>
       </div>
