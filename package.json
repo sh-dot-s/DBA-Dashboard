@@ -5,7 +5,8 @@
   "main": "app.js",
   "scripts": {
     "build": "webpack",
-    "start": "webpack-dev-server --hot"
+    "start": "webpack-dev-server --hot",
+    "postinstall": "webpack"
   },
   "author": "Sri Harsha Sankarasetty",
   "license": "ISC",
